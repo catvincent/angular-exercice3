@@ -1,0 +1,41 @@
+  h3, .contentHeader {
+    font-family: Verdana, Helvetica, Arial, sans-serif;
+    color: black;
+  }
+  
+  main {
+    width: 100%;
+    min-height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    box-sizing: inherit;
+    position: relative;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 100%;
+    max-width: 700px;
+  }
+
+  .contentHeader {
+    width: 100%;
+  }
+  
+  .contentPage {
+    width: 100%;
+  }
+
+  @media screen and (max-width: 650px) {
+    .content {
+      flex-direction: column;
+      width: max-content;
+    }
+
+  }

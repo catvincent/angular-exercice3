@@ -1,0 +1,17 @@
+
+<router-outlet>
+  
+<main class="main">
+  <div class="content">
+    <h3>{{ title }}</h3>
+    <div class="contentHeader">
+      {{ currentDate | date: 'd MMMM yyyy HH:mm:ss' }}
+    </div>
+    <div class="contentPage">
+      <!-- tableau de la liste des transactions -->
+      <app-transaction-list></app-transaction-list>
+    </div>
+  </div>
+</main>
+
+<router-outlet />

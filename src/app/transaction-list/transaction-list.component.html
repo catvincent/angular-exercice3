@@ -1,0 +1,32 @@
+
+<p>Liste des transactions &eacute;ffectu&eacute;es</p>
+<table>
+    <thead>
+        <tr>
+            <th><a href="#" (click)="sortBySt('id')">Num&eacute;ro</a></th>
+            <th><a href="#" (click)="sortBySt('date')">Date</a></th>
+            <th><a href="#" (click)="sortByNb('amount')">Montant</a></th>
+            <th><a href="#" (click)="sortByNb('balance')">Solde</a></th>
+            <th><a href="#" (click)="sortBySt('label')">Libell&eacute;</a></th>
+        </tr>
+    </thead>
+    <tbody>
+    <!-- affichage de la liste : la syntaxe *ngFor est obsolète 
+    méthode 2 : sans passer par l'observable et en restant en mode sync  :
+    @for (transaction of transactionList; track transaction.id) { (syntaxe plutôt lourde)
+    la méthode 1 : utilisation d'un observable et mode async (syntaxe ultra légère) 
+    @for (transaction of  (transactions$ | async); track transaction.id) { 
+    problème : on perd le tri des colonnes -->
+    @for (transaction of transactionList; track transaction.id) {
+        <tr>
+            <td><a [routerLink]="['/transaction-detail', transaction.id]">{{ transaction.id }}</a></td>
+            <td><a [routerLink]="['/transaction-detail', transaction.id]">{{ transaction.date | date: 'dd/MM/yyyy' }}</a></td>
+            <td><a [routerLink]="['/transaction-detail', transaction.id]">{{ transaction.amount }}</a></td>
+            <td><a [routerLink]="['/transaction-detail', transaction.id]">{{ transaction.balance }}</a></td>
+            <td><a [routerLink]="['/transaction-detail', transaction.id]">{{ transaction.label }}</a></td>
+        </tr>
+    }
+    </tbody>
+</table>
+<!-- pour l'affichage du détail de la transaction choisie -->
+<router-outlet></router-outlet>
